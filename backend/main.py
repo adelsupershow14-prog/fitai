@@ -493,3 +493,7 @@ def get_leaderboard(authorization: Optional[str] = Header(None), db: Session = D
         "total": len(entries),
         "currentUser": current_user_rank,
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=10000, reload=True)
