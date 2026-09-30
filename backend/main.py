@@ -6,8 +6,8 @@ from fastapi import FastAPI, Depends, HTTPException, Header, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from database import get_db, engine, Base, User, WorkoutPlan, UserAvatar, WorkoutHistory, DB_PATH
-from schemas import (
+from .database import get_db, engine, Base, User, WorkoutPlan, UserAvatar, WorkoutHistory, DB_PATH
+from .schemas import (
     UserRegister,
     UserLogin,
     UserResponse,
@@ -20,7 +20,7 @@ from schemas import (
     WorkoutRecord,
     WorkoutHistoryItem,
 )
-from plan_generator import generate_workout_plan
+from .plan_generator import generate_workout_plan
 
 # Automatically initialize and verify SQLite schema
 Base.metadata.create_all(bind=engine)
